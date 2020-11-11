@@ -1,0 +1,15 @@
+
+server:
+  port: 8083
+
+spring:
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://81.68.205.41:3306/JAVADB?serverTimezone=UTC&characterEncoding=utf8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  mvc:
+    view:
+      prefix: /WEB-INF/
+      suffix: .jsp
+    static-path-pattern: /static/**
