@@ -54,7 +54,7 @@ public class OnlineCodeService {
         ServerTool.write(code,codeDir,className+".java");
 
         //往服务器写容器内代码运行脚本 start.sh
-        String startStr="cd /usr/local/"+codeType+"/code;javac "+ className+".java;java "+className;
+        String startStr="cd /usr/local/"+codeType+"/code;javac -encoding utf-8 "+ className+".java;java -Dfile.encoding='utf-8' "+className;
         String startDir="/root/javaee/online/sh";
         ServerTool.write(startStr,startDir,"start.sh");
 
@@ -127,7 +127,7 @@ public class OnlineCodeService {
     public String runPythonCode(String code,String codeType){
         //写代码文件
         String codeDir="/root/javaee/online/code";
-        ServerTool.write(code,codeDir,"test.py");
+        ServerTool.write("# coding=utf-8\n"+code,codeDir,"test.py");
 
         //往服务器写容器内代码运行脚本 start.sh
         String startStr="cd /usr/local/"+codeType+"/code;python test.py";

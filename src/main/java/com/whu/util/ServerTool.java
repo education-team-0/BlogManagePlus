@@ -19,7 +19,6 @@ public class ServerTool {
         try {
             String[] cmd = new String[]{"/bin/sh", "-c", command};
             Process ps = Runtime.getRuntime().exec(cmd);
-
             BufferedReader br = new BufferedReader(new InputStreamReader(ps.getInputStream()));
             StringBuffer sb = new StringBuffer();
             String line;
@@ -27,8 +26,6 @@ public class ServerTool {
                 sb.append(line).append("\n");
             }
             result = sb.toString();
-
-
         } catch (Exception e) {
             e.printStackTrace();
         }
