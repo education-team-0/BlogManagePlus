@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 /**
  * @author Hongchao Yang
  * @date 2020-10-21 9:21
+ * 测试
  */
 @CrossOrigin(origins = "*", maxAge = 3600)
 @Controller

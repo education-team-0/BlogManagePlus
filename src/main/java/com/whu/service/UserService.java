@@ -56,22 +56,5 @@ public class UserService {
     }
 
 
-//    public Response Login(String username,String password){
-//
-//        User user=userMapper.findByName(username);
-//        if(user!=null){
-//            if(user.getPwd().equals(password)){
-//                //登录成功则生成token并返回
-//                String token=tokenService.getToken(user);
-//                return new Response().success(token);
-//            }else{
-//                return new Response().failure("密码不正确!");
-//            }
-//        }
-//        else{
-//            return new Response().failure("用户名不存在!");
-//        }
-//    }
-
 
 }

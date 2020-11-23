@@ -20,7 +20,7 @@ public class TokenService {
         long currentTime = System.currentTimeMillis() + 60* 60 * 1000;
         Date end = new Date(currentTime);
         String token = "";
-        token = JWT.create().withAudience(user.getId().toString()).withIssuedAt(start).withExpiresAt(end)
+        token = JWT.create().withAudience(user.getUserId().toString()).withIssuedAt(start).withExpiresAt(end)
                 .sign(Algorithm.HMAC256(user.getPwd()));
         return token;
     }

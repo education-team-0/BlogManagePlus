@@ -55,7 +55,7 @@ public class UserController {
         return new Response().success(status);
     }
 
-    @PostMapping("/login")
+    @GetMapping("/login")
     public Response login(@RequestParam("name") String username,
                           @RequestParam("pass") String password) {
         User user= userService.findByName(username);
@@ -86,7 +86,6 @@ public class UserController {
     public String passToken(){
         return "PassToken!";
     }
-
 
 
 }

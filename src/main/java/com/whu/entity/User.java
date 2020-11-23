@@ -9,6 +9,7 @@ import java.io.Serializable;
 /**
  * @author Hongchao Yang
  * @date 2020-10-21 10:23
+ * 用户实体类
  */
 @Data
 @ToString
@@ -19,10 +20,12 @@ public class User implements Serializable{
 
     @Id
     @GeneratedValue
-    private Integer id;
-
+    private Integer userId;
     private String pwd;
     private String name;
+    private String introduction;
+    private String email;
+    private String avatar;
 
     public User(String name,String pwd){
         this.name=name;

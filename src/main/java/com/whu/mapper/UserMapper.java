@@ -21,7 +21,7 @@ public interface UserMapper {
     @Select("select * from user")
     List<User> findAll();
 
-    @Select("select * from user where id=#{id}")
+    @Select("select * from user where userId=#{id}")
     User findById(int id);
 
     @Insert("insert into user(name,pwd) values(#{name},#{pwd})")
@@ -31,7 +31,7 @@ public interface UserMapper {
     User findByName(String name);
 
 
-    @Select("select role from user2 where username={name}")
+    @Select("select role from user2 where name={name}")
     String findRoleByName(String name);
 
 
