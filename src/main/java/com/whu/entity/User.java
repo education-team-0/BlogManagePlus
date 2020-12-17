@@ -1,6 +1,7 @@
 package com.whu.entity;
 
 import lombok.*;
+import org.springframework.context.annotation.PropertySource;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -30,6 +31,10 @@ public class User implements Serializable{
     public User(String name,String pwd){
         this.name=name;
         this.pwd=pwd;
+    }
+
+    public static void main(String[] args) throws ClassNotFoundException {
+        Class i=Class.forName("java.io.InputStream");
     }
 
 }
