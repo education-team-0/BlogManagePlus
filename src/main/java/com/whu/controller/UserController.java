@@ -3,7 +3,7 @@ package com.whu.controller;
 import com.whu.annotation.PassToken;
 import com.whu.annotation.UserLoginToken;
 import com.whu.entity.Response;
-import com.whu.entity.User;
+import com.whu.mbgentity.User;
 import com.whu.service.TokenService;
 import com.whu.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

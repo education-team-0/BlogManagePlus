@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.whu.mbgdao.CommentMapper">
+  <resultMap id="BaseResultMap" type="com.whu.mbgentity.Comment">
+    <constructor>
+      <idArg column="commentId" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="userName" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="content" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="blogId" javaType="java.lang.Integer" jdbcType="INTEGER" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    commentId, time, userName, content, blogId
+  </sql>
+  <insert id="insertSelective" parameterType="com.whu.mbgentity.Comment">
+    insert into comment
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="commentid != null">
+        commentId,
+      </if>
+      <if test="time != null">
+        time,
+      </if>
+      <if test="username != null">
+        userName,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="blogid != null">
+        blogId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="commentid != null">
+        #{commentid,jdbcType=INTEGER},
+      </if>
+      <if test="time != null">
+        #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="blogid != null">
+        #{blogid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.whu.mbgentity.Comment">
+    update comment
+    <set>
+      <if test="time != null">
+        time = #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="username != null">
+        userName = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="blogid != null">
+        blogId = #{blogid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where commentId = #{commentid,jdbcType=INTEGER}
+  </update>
+</mapper>

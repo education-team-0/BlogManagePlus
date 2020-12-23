@@ -1,7 +1,8 @@
 package com.whu.controller;
 
-import com.whu.entity.Blog;
+
 import com.whu.entity.Response;
+import com.whu.mbgentity.Blog;
 import com.whu.service.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -26,7 +27,7 @@ public class BlogController {
     @RequestMapping("/publish")
     public Response publicBlog(@RequestBody Blog blog){
         String msg;
-        if(blog.getBlogId()==null){
+        if(blog.getBlogid()==null){
             msg=blogService.publishBlog(blog);
         }
         else{

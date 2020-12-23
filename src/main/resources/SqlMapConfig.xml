@@ -6,7 +6,7 @@
 <configuration>
 
     <typeAliases>
-        <package name="com.whu.entity"/>
+        <package name="com.whu.mbgentity"/>
     </typeAliases>
     
 <!--    <environments default="tencent">-->

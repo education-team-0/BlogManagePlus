@@ -1,10 +1,11 @@
 package com.whu.service;
 
-import com.whu.entity.User;
 
+
+import com.whu.mbgdao.UserMapper;
+import com.whu.mbgentity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.whu.mapper.UserMapper;
 import java.util.List;
 
 /**
@@ -23,7 +24,7 @@ public class UserService {
      * @return
      */
     public List<User> findAll(){
-        return userMapper.findAll();
+        return userMapper.selectAll();
     }
 
     /**
@@ -32,7 +33,7 @@ public class UserService {
      * @return
      */
     public User findById(int id){
-        return userMapper.findById(id);
+        return userMapper.selectByPrimaryKey(id);
     }
 
     /**
@@ -41,8 +42,8 @@ public class UserService {
      * @return
      */
     public String addUser(User user){
-        userMapper.addUser(user);
-        return "Add success";
+        int result=userMapper.insert(user);
+        return result+"";
     }
 
 
@@ -52,7 +53,7 @@ public class UserService {
      * @return
      */
     public User findByName(String name){
-        return userMapper.findByName(name);
+        return userMapper.selectByName(name);
     }
 
 

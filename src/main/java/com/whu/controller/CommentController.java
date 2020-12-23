@@ -1,7 +1,8 @@
 package com.whu.controller;
 
-import com.whu.entity.Comment;
+
 import com.whu.entity.Response;
+import com.whu.mbgentity.Comment;
 import com.whu.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -24,7 +25,7 @@ public class CommentController {
     CommentService commentService;
 
     @RequestMapping("/publish")
-    public Response publicComment(@RequestBody  Comment comment){
+    public Response publicComment(@RequestBody Comment comment){
         String msg=commentService.publicComment(comment);
         return new Response().success(msg);
     }

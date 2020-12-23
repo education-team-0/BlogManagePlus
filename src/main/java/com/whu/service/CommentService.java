@@ -1,7 +1,7 @@
 package com.whu.service;
 
-import com.whu.entity.Comment;
-import com.whu.mapper.CommentMapper;
+import com.whu.mbgdao.CommentMapper;
+import com.whu.mbgentity.Comment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,22 +17,22 @@ public class CommentService {
     CommentMapper commentMapper;
 
     public String publicComment(Comment comment){
-        commentMapper.publishComment(comment);
-        return "评论成功!";
+        int result=commentMapper.insert(comment);
+        return result+"";
     }
 
     public String deleteComment(Integer commentId){
-        commentMapper.deleteComment(commentId);
-        return "评论已删除!";
+        int result=commentMapper.deleteByPrimaryKey(commentId);
+        return result+"";
     }
 
     public List<Comment> selectCommentsByBlog(Integer blogId){
-        return commentMapper.selectCommentsByBlog(blogId);
+        return commentMapper.selectByBlog(blogId);
     }
 
 
     public List<Comment> selectCommentsByUser(String username){
-        return commentMapper.selectCommentsByUser(username);
+        return commentMapper.selectByUser(username);
     }
 
 

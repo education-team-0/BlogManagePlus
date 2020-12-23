@@ -7,7 +7,7 @@ import com.auth0.jwt.exceptions.JWTDecodeException;
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.whu.annotation.PassToken;
 import com.whu.annotation.UserLoginToken;
-import com.whu.entity.User;
+import com.whu.mbgentity.User;
 import com.whu.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.method.HandlerMethod;
