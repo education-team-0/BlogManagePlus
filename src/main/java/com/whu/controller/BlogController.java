@@ -66,5 +66,12 @@ public class BlogController {
         return new Response().success(blog);
     }
 
+    @RequestMapping("/updateView")
+    public Response updateViewNum(int blogid){
+        int initView=blogService.selectViewNum(blogid);
+        String msg=blogService.updateViewNum(blogid,initView+1);
+        return new Response().success(msg);
+    }
+
 
 }

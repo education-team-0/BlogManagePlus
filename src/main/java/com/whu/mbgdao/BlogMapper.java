@@ -95,4 +95,38 @@ public interface BlogMapper {
         "where blogId = #{blogid,jdbcType=INTEGER}"
     })
     int updateByPrimaryKey(Blog record);
+
+
+    @Update({
+            "update blog",
+            "set viewFrequency = #{newFrequency,jdbcType=VARCHAR} ",
+            "where blogId = #{blogid,jdbcType=INTEGER}"
+    })
+    int updateViewNum(int blogid,int newFrequency);
+
+    @Update({
+            "update blog",
+            "set commentNum = #{newCommentNum,jdbcType=INTEGER} ",
+            "where blogId = #{blogid,jdbcType=INTEGER}"
+    })
+    int updateCommentNum(int blogid,int newCommentNum);
+
+
+    @Select({
+            "select",
+            "viewFrequency ",
+            "from blog",
+            "where blogId = #{blogid,jdbcType=INTEGER}"
+    })
+    int selectViewNum(int blogid);
+
+    @Select({
+            "select",
+            "commentNum ",
+            "from blog",
+            "where blogId = #{blogid,jdbcType=INTEGER}"
+    })
+    int selectCommentNum(int blogid);
+
+
 }

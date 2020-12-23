@@ -3,6 +3,7 @@ package com.whu.controller;
 
 import com.whu.entity.Response;
 import com.whu.mbgentity.Comment;
+import com.whu.service.BlogService;
 import com.whu.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -24,9 +25,15 @@ public class CommentController {
     @Autowired
     CommentService commentService;
 
+    @Autowired
+    BlogService blogService;
+
+
     @RequestMapping("/publish")
     public Response publicComment(@RequestBody Comment comment){
         String msg=commentService.publicComment(comment);
+        int initComment=blogService.selectCommentNum(comment.getBlogid());
+        blogService.updateCommentNum(comment.getBlogid(),initComment+1);
         return new Response().success(msg);
     }
 

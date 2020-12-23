@@ -44,6 +44,24 @@ public class BlogService {
         return blogMapper.selectByPrimaryKey(id);
     }
 
+    public String updateCommentNum(int blogid,int commentNum){
+        int result=blogMapper.updateCommentNum(blogid,commentNum);
+        return result+"";
+    }
+
+    public String updateViewNum(int blogid,int viewNum){
+        int result=blogMapper.updateViewNum(blogid,viewNum);
+        return result+"";
+    }
+
+    public int selectViewNum(int blogid){
+        return blogMapper.selectViewNum(blogid);
+    }
+
+    public int selectCommentNum(int blogid){
+        return blogMapper.selectCommentNum(blogid);
+    }
+
 
 //    @Autowired
 //    BlogMapper blogMapper;
