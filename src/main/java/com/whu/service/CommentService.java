@@ -35,5 +35,10 @@ public class CommentService {
         return commentMapper.selectByUser(username);
     }
 
+    public String deleteByPrimaryKey(int commentid){
+        int result=commentMapper.deleteByPrimaryKey(commentid);
+        return result+"";
+    }
+
 
 }

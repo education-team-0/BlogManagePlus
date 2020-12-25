@@ -62,6 +62,11 @@ public class BlogService {
         return blogMapper.selectCommentNum(blogid);
     }
 
+    public String deleteByPrimaryKey(int blogid){
+        int result=blogMapper.deleteByPrimaryKey(blogid);
+        return result+"";
+    }
+
 
 //    @Autowired
 //    BlogMapper blogMapper;

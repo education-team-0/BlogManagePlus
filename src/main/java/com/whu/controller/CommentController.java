@@ -6,10 +6,7 @@ import com.whu.mbgentity.Comment;
 import com.whu.service.BlogService;
 import com.whu.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -55,6 +52,11 @@ public class CommentController {
         return new Response().success(commentList);
     }
 
+    @RequestMapping(value = "/delete",method = RequestMethod.DELETE)
+    public Response delete(int commentid){
+        String msg=commentService.deleteByPrimaryKey(commentid);
+        return new Response().success(msg);
+    }
 
 
 

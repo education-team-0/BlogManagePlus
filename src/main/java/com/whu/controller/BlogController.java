@@ -5,10 +5,7 @@ import com.whu.entity.Response;
 import com.whu.mbgentity.Blog;
 import com.whu.service.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -70,6 +67,12 @@ public class BlogController {
     public Response updateViewNum(int blogid){
         int initView=blogService.selectViewNum(blogid);
         String msg=blogService.updateViewNum(blogid,initView+1);
+        return new Response().success(msg);
+    }
+
+    @RequestMapping(value = "/delete",method = RequestMethod.DELETE)
+    public Response delete(int blogid){
+        String msg=blogService.deleteByPrimaryKey(blogid);
         return new Response().success(msg);
     }
 
